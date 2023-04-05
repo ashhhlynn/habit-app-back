@@ -35,7 +35,7 @@ class HabitsController < ApplicationController
       private
     
       def habit_params
-        params.require(:habit).permit(:title, :startday, :description, :days, :day_of_weeks => [:habit_id, :name])
+        params.require(:habit).permit(:title, :startday, :description, :days, :user_id, :day_of_weeks => [:habit_id, :name])
       end
     
 

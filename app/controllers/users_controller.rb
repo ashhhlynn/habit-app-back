@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     end
     
     def profile
-        render json: {  user: current_user }, status: :accepted
+        render json: {  user: current_user }, include: [habits: {include: :day_of_weeks}], status: :accepted
     end
 
     def create
