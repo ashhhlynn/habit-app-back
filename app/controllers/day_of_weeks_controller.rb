@@ -27,7 +27,7 @@ class DayOfWeeksController < ApplicationController
                 
                 render json: day_of_week, include: [:habit], status: :ok
             else 
-                render json: { message: 'Order submission failed. Please try again.' }, status: :unprocessable_entity
+                render json: { message: 'Submission failed. Please try again.' }, status: :unprocessable_entity
             end 
         end 
     

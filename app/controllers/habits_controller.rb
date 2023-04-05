@@ -13,7 +13,7 @@ class HabitsController < ApplicationController
         if @habit.valid?
           render json: @habit, include: [:day_of_weeks], status: :created
         else 
-          render json: { message: 'Product submission failed. Please try again.' }, status: :unprocessable_entity
+          render json: { message: 'Submission failed. Please try again.' }, status: :unprocessable_entity
         end
       end
     
@@ -22,7 +22,7 @@ class HabitsController < ApplicationController
         if habit.update(habit_params)
           render json: habit, include: [:day_of_weeks]
         else 
-          render json: { message: 'Failed to update product. Please try again.' }, status: :unprocessable_entity
+          render json: { message: 'Failed to update. Please try again.' }, status: :unprocessable_entity
         end 
       end 
     
