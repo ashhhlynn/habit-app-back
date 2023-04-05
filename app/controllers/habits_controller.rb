@@ -2,7 +2,7 @@ class HabitsController < ApplicationController
 
     def index
        habits= Habit.all
-        render json: habits, include: [day_of_weeks: {include: :checks}]
+        render json: habits, include: [:day_of_weeks]
       end
     
       def create
@@ -19,7 +19,12 @@ class HabitsController < ApplicationController
     
       def update
         habit = Habit.find(params[:id])
+        habit.day_of_weeks.destroy_all
+      
         if habit.update(habit_params)
+          params[:day_of_weeks].each do |dow|
+            DayOfWeek.create(habit_id: habit.id, name: dow)
+          end 
           render json: habit, include: [:day_of_weeks]
         else 
           render json: { message: 'Failed to update. Please try again.' }, status: :unprocessable_entity
