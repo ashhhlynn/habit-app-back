@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
+gem 'omniauth-github', "~> 1.1"
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
 # Use postgresql as the database for Active Record
@@ -23,9 +28,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 
-gem 'dotenv'
 gem 'jwt'
-
+gem "dotenv-rails", "~> 2.8"
 gem 'active_model_serializers'
 
 # Use Active Storage variant

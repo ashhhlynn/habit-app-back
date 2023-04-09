@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :day_of_weeks
   resources :habits
   resources :users
+  get '/auth/github/callback' => 'auth#create'
 
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
