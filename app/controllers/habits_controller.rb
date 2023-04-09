@@ -20,7 +20,6 @@ class HabitsController < ApplicationController
       def update
         habit = Habit.find(params[:id])
         habit.day_of_weeks.destroy_all
-      
         if habit.update(habit_params)
           params[:day_of_weeks].each do |dow|
             DayOfWeek.create(habit_id: habit.id, name: dow)
@@ -33,7 +32,7 @@ class HabitsController < ApplicationController
     
       def destroy
         habit = Habit.find(params[:id])
-       habit.destroy
+        habit.destroy
         head :no_content, status: :ok
       end
     
@@ -43,5 +42,4 @@ class HabitsController < ApplicationController
         params.require(:habit).permit(:title, :startday, :description, :days, :user_id, :day_of_weeks => [:habit_id, :name])
       end
     
-
 end

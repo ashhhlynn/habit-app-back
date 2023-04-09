@@ -1,6 +1,5 @@
 class AuthController < ApplicationController
 
-
     def create
         @user = User.find_by(email: user_login_params[:email])
         if @user && @user.authenticate(user_login_params[:password])

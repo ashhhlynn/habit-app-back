@@ -1,7 +1,5 @@
 class ChecksController < ApplicationController
 
-
-
     def index
         checks =  Check.all
         render json: checks
@@ -23,8 +21,6 @@ class ChecksController < ApplicationController
         end 
     end 
 
-
-
     def destroy
         check = Check.find_by(id: params[:id])
         check.destroy
@@ -36,10 +32,6 @@ class ChecksController < ApplicationController
     def check_params
         params.require(:check).permit(:complete, :day_of_week_id)
     end
-
-
-
-
 
 end
 
