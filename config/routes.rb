@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :checks
   resources :day_of_weeks
   resources :habits
   resources :users
